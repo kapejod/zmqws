@@ -1,0 +1,28 @@
+{
+  "name": "zmqws",
+  "description": "ZeroMQ WebSocket example proxy",
+  "version": "0.0.1",
+  "author": "Klaus-Peter Junghanns",
+  "private": true,
+  "engines": {
+    "node": ">=4.2.6"
+  },
+  "dependencies": {
+    "express": "4.x",
+    "node-uuid": "*",
+    "ws": "*",
+    "zmq": "2.13.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.1",
+    "shelljs": "^0.2.6",
+    "grunt": "~0.4.2",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-concat": "*"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "NODE_ENV=development node server.js"
+  }
+}

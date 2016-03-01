@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      var wsUrl;
+      var address = document.location.search.substring(1);
+      if (!address || (address === "")) {
+        address = "something" + Date.now();
+      }
+      if (document.location.protocol === "https:") {
+        wsUrl = "wss://" + document.location.host + "/" + address;
+      } else {
+        wsUrl = "ws://" + document.location.host + "/" + address;
+      }
+      var ws = new WebSocket(wsUrl, "zmqws-protocol");
+      ws.onopen = function() {
+        ws.send(JSON.stringify(
+          {
+            messageRequest: {
+        	to: address,
+        	message: {
+        	    text: "Hello myself."
+        	}
+            }
+          }
+        ));
+      }
+
+      ws.onmessage = function(message) {
+        console.log(message.data);
+      };
+    </script>
+  </head
+  <body>
+  open your javascript console...
+  </body>
+</html>
